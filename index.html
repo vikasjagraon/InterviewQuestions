@@ -10,21 +10,31 @@
 
     <script>
         document.getElementById('convert-button').addEventListener('click', async () => {
-            const apiKey = 'your_client_id'; // Replace with your actual API key
-            const bearerToken = 'your_token'; // Replace with your actual Bearer token
-            const inputUrl = 'https://developer.adobe.com/document-services/homepage'; // Replace with your actual input URL
+            const apiKey = 'b37b91568ae441788ccbac026ad6e5ab'; 
+            const bearerToken = 'eyJhbGciOiJSUzI1NiIsIng1dSI6Imltc19uYTEta2V5LWF0LTEuY2VyIiwia2lkIjoiaW1zX25hMS1rZXktYXQtMSIsIml0dCI6ImF0In0.eyJpZCI6IjE3MTg4NzIyMjgyNzJfZmFmYzFlZmYtNzA2YS00YmI2LTkwZWItZDY5MzdlODY5NWE3X3VlMSIsIm9yZyI6IkYwMDYxRDU4NjY2QjE1Q0IwQTQ5NUU5RUBBZG9iZU9yZyIsInR5cGUiOiJhY2Nlc3NfdG9rZW4iLCJjbGllbnRfaWQiOiJiMzdiOTE1NjhhZTQ0MTc4OGNjYmFjMDI2YWQ2ZTVhYiIsInVzZXJfaWQiOiI0NTkxMUQ1QTY2NkRBNzYxMEE0OTVDMzFAdGVjaGFjY3QuYWRvYmUuY29tIiwiYXMiOiJpbXMtbmExIiwiYWFfaWQiOiI0NTkxMUQ1QTY2NkRBNzYxMEE0OTVDMzFAdGVjaGFjY3QuYWRvYmUuY29tIiwiY3RwIjozLCJtb2kiOiJmYTU3MDg5ZSIsImV4cGlyZXNfaW4iOiI4NjQwMDAwMCIsInNjb3BlIjoiRENBUEksb3BlbmlkLEFkb2JlSUQiLCJjcmVhdGVkX2F0IjoiMTcxODg3MjIyODI3MyJ9.ViHlX4Ls1LjYw9NO7_YqquOmkBTNXxlBW-mPvhCcBe7lUs7Hzr53PtsqBAOy2-VQR0RN5LTxB_MLd_ltK_zggHHlvfnzYF269Er0ANkCXgRIS91ceTMJiPp4Zu4Ihuu1lH6Y3HZ7wnXynYBK-ndeXDwFaTdKp1bx214pFCc2tZuVAbQTkWHYQQFNuWcJIBknxsG30ZQ4BB52a5iM8UZM2-X3rW89Cc5QWk14T8genjrWP7vgHFUFJN0C1XYWJr23PYHKs1oCWYFKo4EgsZuqraqbW4THYim7DRtCh2V-AJsuz2vVnu74IrEh1Y2j1EAZ6SQZAKk1pyMtE3MyF9gcZw'; // Replace with your actual Bearer token
+            const inputUrl = 'https://vikasjagraon.github.io/InterviewQuestions/index.html'; // Replace with your actual input URL
 
+
+		const htmlContent = "<P>vikas</P>"
             const requestData = {
-                inputUrl: inputUrl,
-                json: "{}",
-                includeHeaderFooter: true,
-                pageLayout: {
-                    pageWidth: 11,
-                    pageHeight: 8.5
-                }
-            };
-
-            try {
+              json: JSON.stringify({
+                        "htmlContent": htmlContent,
+                        "conversionSettings": {
+                            "pageSize": "Letter",
+                            "pageOrientation": "Portrait"
+                        },
+                        "headerFooterSettings": {
+                            "headerEnabled": true,
+                            "footerEnabled": true
+                        }
+                    }),
+                    includeHeaderFooter: true,
+                    pageLayout: {
+                        pageWidth: 11,
+                        pageHeight: 8.5
+                    }
+                };
+             try {
                 const response = await fetch('https://pdf-services.adobe.io/operation/htmltopdf', {
                     method: 'POST',
                     headers: {
